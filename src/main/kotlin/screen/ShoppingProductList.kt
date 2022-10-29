@@ -5,6 +5,7 @@ import data.Product
 import extensions.getNotEmptyInt
 import extensions.getNotEmptyString
 import java.util.concurrent.locks.LockSupport
+import LINE_DIVIDER
 
 class ShoppingProductList {
     private val products = arrayOf(
@@ -28,7 +29,7 @@ class ShoppingProductList {
         if (!categoryProducts.isNullOrEmpty()) {
             println(
                 """
-                ***==================================***
+                $LINE_DIVIDER
                 선택하신 [$selectedCategory] 카테고리 상품입니다.
                 """.trimIndent()
             )
@@ -44,7 +45,7 @@ class ShoppingProductList {
     private fun showCartOption(categoryProducts: List<Product>, selectedCategory: String) {
         println(
             """
-            ***==================================***
+            $LINE_DIVIDER
             장바구니에 담을 상품 번호를 선택해주세요.
             """.trimIndent()
         )
