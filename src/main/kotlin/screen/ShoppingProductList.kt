@@ -7,7 +7,7 @@ import extensions.getNotEmptyString
 import java.util.concurrent.locks.LockSupport
 import LINE_DIVIDER
 
-class ShoppingProductList {
+class ShoppingProductList: Screen() {
     private val products = arrayOf(
         Product("패션", "겨울 패딩"),
         Product("패션", "겨울 바지"),
@@ -25,6 +25,7 @@ class ShoppingProductList {
     }
 
     fun showProducts(selectedCategory: String) {
+        ScreenStack.push(this)
         val categoryProducts = categories[selectedCategory]
         if (!categoryProducts.isNullOrEmpty()) {
             println(
@@ -58,10 +59,11 @@ class ShoppingProductList {
             if (answer == "#"){
                 val shoppingCart = ShoppingCart()
                 shoppingCart.showCartItems()
-            } else if (answer =="*"){
+            } else if (answer == "*"){
                 showProducts(selectedCategory)
             } else {
                 // TODO 그 외 값을 입력한 경우에 대한 처리
+
             }
         }
     }
